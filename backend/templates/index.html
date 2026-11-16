@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gas Monitoring System</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <header>
+        <h1>Gas Monitoring System</h1>
+        <p>Real-Time Environmental Monitoring</p>
+    </header>
+
+    <main>
+
+        <!-- SYSTEM STATUS -->
+        <section class="status-section">
+            <h2>System Status</h2>
+
+            <div id="gas-status" class="status normal">
+                NORMAL
+            </div>
+        </section>
+
+        <!-- SENSOR INFORMATION -->
+        <section class="sensor-grid">
+
+            <div class="sensor-card">
+                <h3>Gas Level</h3>
+                <p id="gas-value">--</p>
+                <span>MQ-5 RAW</span>
+            </div>
+
+            <div class="sensor-card">
+                <h3>Temperature</h3>
+                <p id="temperature-value">-- °C</p>
+                <span>DHT11</span>
+            </div>
+
+            <div class="sensor-card">
+                <h3>Humidity</h3>
+                <p id="humidity-value">-- %</p>
+                <span>DHT11</span>
+            </div>
+
+            <div class="sensor-card">
+                <h3>Buzzer</h3>
+                <p id="buzzer-value">--</p>
+                <span>Alarm System</span>
+            </div>
+
+        </section>
+
+        <!-- ALARM INFORMATION -->
+        <section class="alarm-section">
+            <h2>Alarm Information</h2>
+
+            <p>
+                Gas Detected:
+                <strong id="gas-detected">--</strong>
+            </p>
+
+            <p>
+                Alarm Latched:
+                <strong id="alarm-latched">--</strong>
+            </p>
+
+            <p>
+                Buzzer Muted:
+                <strong id="buzzer-muted">--</strong>
+            </p>
+        </section>
+
+        <!-- REMOTE BUZZER CONTROL -->
+        <section class="control-section">
+
+            <h2>Remote Alarm Control</h2>
+
+            <p>
+                You can temporarily silence the alarm from this dashboard.
+            </p>
+
+            <button id="mute-button" disabled>
+                Mute Alarm
+            </button>
+
+            <p id="mute-message">
+                Waiting for gas detection...
+            </p>
+
+        </section>
+
+        <!-- MEASUREMENT HISTORY -->
+        <section class="history-section">
+            <h2>Measurement History</h2>
+
+            <div id="history-container">
+                Loading measurements...
+            </div>
+        </section>
+
+    </main>
+
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+
+</body>
+</html>
